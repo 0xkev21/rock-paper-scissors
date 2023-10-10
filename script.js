@@ -1,3 +1,13 @@
+// get input from user through button inputs
+const buttons = document.querySelectorAll('input');
+buttons.forEach(button => {
+    button.addEventListener('click', game);
+});
+
+// set output from dom to variable to display them on page
+const singleMatch = document.querySelector('.single-result');
+const gameResult = document.querySelector('.game-result');
+
 // create array of choices
 const arr = ['Rock', 'Paper', 'Scissors'];
 
@@ -6,7 +16,6 @@ const getComputerChoice = () => {
     return arr[Math.floor(Math.random() * 3)];
 }
 
-/* console.log(computerSelection); */
 
 // implement game logic with if else statements
 function playSingle(playerSelection, computerSelection) {
@@ -20,41 +29,44 @@ function playSingle(playerSelection, computerSelection) {
         return `You Lose ! ${playerSelection} lose against ${computerSelection}...`;
     }
 }
-/* const playerSelection = 'Rock';
-console.log(playSingle(playerSelection, computerSelection)); */
 
+
+// initiate wins count for both player and computer
+let playerWins = 0;
+let computerWins = 0;
 
 // create 5 matches game
 function game() {
 
-    // initiate wins count for both player and computer
-    let playerWins = 0;
-    let computerWins = 0;
+    // get playerSelection
+    const playerSelection = this.value;
+    const computerSelection = getComputerChoice();
 
-    // loop until someone has won total 5 times
-    for(let i=0; playerWins < 5 || computerWins < 5 ; i++) {
+    // get result from a single match and store it in match result
+    const matchResult = playSingle(playerSelection, computerSelection);
 
-        // get playerSelection
-        const playerSelection = prompt("Choose: Rock, Paper, Scissor");
-        const computerSelection = getComputerChoice();
+    // display single match result
+    singleMatch.textContent = matchResult;
 
-        // get result from a single match and store it in match result
-        const matchResult = playSingle(playerSelection, computerSelection);
+    // check Win or Lose from matchResult using string method .match() and increment Win counts
+    if(matchResult.match('Win')) {
 
-        // check Win or Lose using string method .match()
-        if(matchResult.match('Win')) {
-            console.log(matchResult);
-            playerWins++;
-            if (playerWins === 5) {
-                return "Congrats, You're blessed with so much luck";
-            }
-        }
-        if(matchResult.match('Lose')) {
-            console.log(matchResult);
-            computerWins++;
-            if (computerWins === 5) {
-                return "No more chances left, such a unlucky day. Good luck next time";
-            }
+        playerWins++;
+        if (playerWins >= 5) {
+            gameResult.textContent = "Congrats, You're blessed with so much luck";
+            playerWins = 0;
+            computerWins = 0;
         }
     }
+
+    if(matchResult.match('Lose')) {
+        
+        computerWins++;
+        if (computerWins >= 5) {
+            gameResult.textContent = "No more chances left, such a unlucky day. Good luck next time";
+            playerWins = 0;
+            computerWins = 0;
+        }
+    } 
+    console.log(playerWins + ":" + computerWins);
 }
