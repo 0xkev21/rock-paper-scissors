@@ -54,8 +54,9 @@ function game() {
         playerWins++;
         if (playerWins >= 5) {
             gameResult.textContent = "Congrats, You're blessed with so much luck";
-            playerWins = 0;
-            computerWins = 0;
+            buttons.forEach(button => {
+                button.setAttribute('disabled', '');
+            })
         }
     }
 
@@ -64,9 +65,28 @@ function game() {
         computerWins++;
         if (computerWins >= 5) {
             gameResult.textContent = "No more chances left, such a unlucky day. Good luck next time";
-            playerWins = 0;
-            computerWins = 0;
+            buttons.forEach(button => {
+                button.setAttribute('disabled', '');
+            })
         }
     } 
     console.log(playerWins + ":" + computerWins);
 }
+
+// implement play again option
+function playAgain () {
+
+    // reset Win counts
+    computerWins = 0;
+    playerWins = 0;
+    
+    // enable back buttons
+    buttons.forEach(button => {
+        button.removeAttribute('disabled');
+    })
+
+    // remove game result texts
+    singleMatch.textContent = '';
+    gameResult.textContent = '';
+}
+document.getElementById('play-again').addEventListener('click', playAgain);
