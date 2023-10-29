@@ -72,7 +72,7 @@ function game() {
         
         computerWins++;
         if (computerWins >= 5) {
-            gameResult.textContent = "No more chances left, such a unlucky day. Good luck next time";
+            gameResult.textContent = "No more chances left, such an unlucky day. Good luck next time";
             buttons.forEach(button => {
                 button.setAttribute('disabled', '');
             });
