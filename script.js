@@ -5,7 +5,6 @@ buttons.forEach(button => {
 });
 const playAgainBtn = document.querySelector('#play-again');
 
-// set output from dom to variable to display them on page
 const singleMatch = document.querySelector('#single-result');
 const result = document.querySelector('.result');
 const gameResult = document.querySelector('#game-result');
