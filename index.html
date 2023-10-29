@@ -3,28 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rock Paper Scissors</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- May be I need three inputs from user Rock, Paper, Scissor
-    3 outputs: match result for each round, wins count for each player and result for total 5 rounds -->
     <h1>A Rock, Paper, Scissors Game</h1>
-
-    <!-- inputs -->
     <div class="container">
-        <input type="button" value="Rock">
-        <input type="button" value="Paper">
-        <input type="button" value="Scissors">
+        <div class="choicesAndPoints">
+            <div id="playerContainer" class="inner-container">
+                <h2>You</h2>
+                <div class="img-container" >
+                    <img id="playerChoice" src="images/placeholder.svg" alt="Player's choice">
+                </div>
+                <div class="points" id="playerPoints">0</div>
+            </div>
+            <div id="computerContainer" class="inner-container">
+                <h2>Computer</h2>
+                <div class="img-container">
+                    <img id="computerChoice" src="images/placeholder.svg" alt="Computer's choice">
+                </div>
+                <div class="points" id="computerPoints">0</div>
+            </div>
+            <span class="divider">:</span>
+        </div>
+
+        <h2 id="single-result"></h2>
+
+        <div class="buttons">
+            <input type="button" value="Rock">
+            <input type="button" value="Paper">
+            <input type="button" value="Scissors">
+        </div>
     </div>
 
-    <!-- outputs -->
-    <div class="single-result"></div>
-    <div class="game-result"></div>
+    <div class="result">
+        <div id="game-result"></div>
+        <button type="button" id="play-again">Play Again</button>
+    </div>
     
-
-    <!-- Play again button -->
-    <button type="button" id="play-again">Play Again</button>
 
     <script src="script.js"></script>
 </body>

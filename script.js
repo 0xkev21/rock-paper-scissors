@@ -3,10 +3,16 @@ const buttons = document.querySelectorAll('input');
 buttons.forEach(button => {
     button.addEventListener('click', game);
 });
+const playAgainBtn = document.querySelector('#play-again');
 
 // set output from dom to variable to display them on page
-const singleMatch = document.querySelector('.single-result');
-const gameResult = document.querySelector('.game-result');
+const singleMatch = document.querySelector('#single-result');
+const result = document.querySelector('.result');
+const gameResult = document.querySelector('#game-result');
+const d_playerWins = document.querySelector('#playerPoints');
+const d_computerWins = document.querySelector('#computerPoints');
+const playerChoice = document.querySelector('#playerChoice');
+const computerChoice = document.querySelector('#computerChoice');
 
 // create array of choices
 const arr = ['Rock', 'Paper', 'Scissors'];
@@ -46,6 +52,8 @@ function game() {
     const matchResult = playSingle(playerSelection, computerSelection);
 
     // display single match result
+    playerChoice.setAttribute('src', `images/${playerSelection}.svg`);
+    computerChoice.setAttribute('src', `images/${computerSelection}.svg`);
     singleMatch.textContent = matchResult;
 
     // check Win or Lose from matchResult using string method .match() and increment Win counts
@@ -53,10 +61,11 @@ function game() {
 
         playerWins++;
         if (playerWins >= 5) {
-            gameResult.textContent = "Congrats, You're blessed with so much luck";
+            gameResult.textContent = "Congrats, You're blessed with so much luck !";
             buttons.forEach(button => {
                 button.setAttribute('disabled', '');
-            })
+            });
+            result.classList.add('show');
         }
     }
 
@@ -67,10 +76,13 @@ function game() {
             gameResult.textContent = "No more chances left, such a unlucky day. Good luck next time";
             buttons.forEach(button => {
                 button.setAttribute('disabled', '');
-            })
+            });
+            result.classList.add('show');
         }
     } 
-    console.log(playerWins + ":" + computerWins);
+    // console.log(playerWins + ":" + computerWins);
+    d_playerWins.textContent = playerWins;
+    d_computerWins.textContent = computerWins;
 }
 
 // implement play again option
@@ -79,11 +91,16 @@ function playAgain () {
     // reset Win counts
     computerWins = 0;
     playerWins = 0;
+    d_playerWins.textContent = playerWins;
+    d_computerWins.textContent = computerWins;
+    playerChoice.src = 'images/placeholder.svg';
+    computerChoice.src = 'images/placeholder.svg';
     
     // enable back buttons
     buttons.forEach(button => {
         button.removeAttribute('disabled');
-    })
+    });
+    result.classList.remove('show');
 
     // remove game result texts
     singleMatch.textContent = '';
