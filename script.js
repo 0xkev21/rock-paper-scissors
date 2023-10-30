@@ -5,6 +5,7 @@ buttons.forEach(button => {
 });
 const playAgainBtn = document.querySelector('#play-again');
 
+// set dom elements to variables to display results
 const singleMatch = document.querySelector('#single-result');
 const result = document.querySelector('.result');
 const gameResult = document.querySelector('#game-result');
@@ -15,6 +16,12 @@ const computerChoice = document.querySelector('#computerChoice');
 
 // create array of choices
 const arr = ['Rock', 'Paper', 'Scissors'];
+
+// preload images for choices
+arr.forEach(choice => {
+    const img = new Image();
+    img.src = `images/${choice}.svg`;
+})
 
 // get computer selection
 const getComputerChoice = () => {
@@ -43,7 +50,7 @@ let computerWins = 0;
 // create 5 matches game
 function game() {
 
-    // get playerSelection
+    // get playerSelection and computer selection
     const playerSelection = this.value;
     const computerSelection = getComputerChoice();
 
@@ -57,8 +64,8 @@ function game() {
 
     // check Win or Lose from matchResult using string method .match() and increment Win counts
     if(matchResult.match('Win')) {
-
         playerWins++;
+
         if (playerWins >= 5) {
             gameResult.textContent = "Congrats, You're blessed with so much luck !";
             buttons.forEach(button => {
@@ -69,8 +76,8 @@ function game() {
     }
 
     if(matchResult.match('Lose')) {
-        
         computerWins++;
+
         if (computerWins >= 5) {
             gameResult.textContent = "No more chances left, such an unlucky day. Good luck next time";
             buttons.forEach(button => {
@@ -87,7 +94,7 @@ function game() {
 // implement play again option
 function playAgain () {
 
-    // reset Win counts
+    // reset Win counts and dom elements
     computerWins = 0;
     playerWins = 0;
     d_playerWins.textContent = playerWins;
@@ -95,7 +102,7 @@ function playAgain () {
     playerChoice.src = 'images/placeholder.svg';
     computerChoice.src = 'images/placeholder.svg';
     
-    // enable back buttons
+    // enable buttons back
     buttons.forEach(button => {
         button.removeAttribute('disabled');
     });
