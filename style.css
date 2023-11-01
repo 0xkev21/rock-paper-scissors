@@ -134,7 +134,15 @@ button {
     color: papayawhip;
 }
 
+input[type="button"]:hover {
+    background-color: rgb(249, 221, 173);
+}
+
 #single-result, #game-result {
     font-size: clamp(16px, 2vw, 30px);
     font-weight: bold;
+}
+
+footer > a {
+    color: lightblue;
 }
