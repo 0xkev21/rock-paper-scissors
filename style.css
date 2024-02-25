@@ -16,15 +16,15 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 70px;
+    gap: 4.375rem;
     font-family: 'Sometype Mono',monospace;
     overflow: hidden;
 }
 
 .container {
-    width: calc(100% - 20px);
+    width: calc(100% - 1.25rem);
     display: flex;
-    gap: 20px;
+    gap: 1.25rem;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -32,7 +32,7 @@ body {
 
 .choicesAndPoints {
     display: flex;
-    gap: clamp(20px, 10vw, 200px);
+    gap: clamp(1.25rem, 10vw, 12.5rem);
     justify-content: center;
     position: relative;
 }
@@ -40,42 +40,42 @@ body {
 .inner-container {
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 1.25rem;
     background: rgba()
 }
 
 .divider {
     position: absolute;
-    bottom: 3px;
+    bottom: .1875rem;
     left: 50%;
     transform: translate(-50%, 0);
     font-family: 'Rubik Mono One',monospace;
 }
 
 #single-result {
-    height: 30px;
+    height: 1.875rem;
 }
 
 h1 {
     text-align: center;
-    font-size: clamp(20px, 3vw, 50px);
+    font-size: clamp(1.25rem, 3vw, 3.125rem);
     text-decoration: underline;
 }
 
 h2 {
     text-align: center;
-    font-size: clamp(18px, 2.5vw, 40px);
+    font-size: clamp(1.125rem, 2.5vw, 2.5rem);
 }
 
 .points {
     text-align: center;
     font-family: 'Monofett', monospace;
-    font-size: 40px;
+    font-size: 2.5rem;
 }
 
 .inner-container > .img-container {
-    width: clamp(150px, 20vw, 200px);
-    height: clamp(150px, 20vw, 200px);
+    width: clamp(9.375rem, 20vw, 12.5rem);
+    height: clamp(9.375rem, 20vw, 12.5rem);
     background-color: papayawhip;
     border-radius: 50%;
     overflow: hidden;
@@ -89,28 +89,28 @@ h2 {
 .buttons {
     display: flex;
     justify-content: center;
-    width: calc(100% - 20px);
+    width: calc(100% - 1.25rem);
     display: flex;
-    gap: clamp(10px, 8vw, 80px);
+    gap: clamp(.625rem, 8vw, 5rem);
 }
 
 input[type="button"], button {
-    width: clamp(100px, 10vw, 200px);
-    padding: 10px 5px;
+    width: clamp(6.25rem, 10vw, 12.5rem);
+    padding: .625rem .3125rem;
     font-family: 'Rubik Mono One', monospace;
-    font-size: clamp(12px, 1.3vw, 24px);
-    border-radius: 8px;
+    font-size: clamp(.75rem, 1.3vw, 1.5rem);
+    border-radius: .5rem;
     cursor: pointer;
 }
 
 .result {
-    width: calc(100% - 20px);
+    width: calc(100% - 1.25rem);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     font-family: 'Sometype Mono', monospace;
-    gap: 20px;
+    gap: 1.25rem;
     text-align: center;
     position: absolute;
     left: 50%;
@@ -118,10 +118,10 @@ input[type="button"], button {
     transform: translate(-50%, -50%);
     background: rgba(255, 255, 255, 0.8);
     color:rgb(5, 3, 28);
-    padding: 50px;
-    -webkit-backdrop-filter: blur(4px);
-    -moz-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
+    padding: 3.125rem;
+    -webkit-backdrop-filter: blur(.25rem);
+    -moz-backdrop-filter: blur(.25rem);
+    backdrop-filter: blur(.25rem);
     display: none;
 }
 .result.show {
@@ -129,7 +129,7 @@ input[type="button"], button {
 }
 
 button {
-    min-width: 150px;
+    min-width: 9.375rem;
     background: rgba(5, 3, 28);
     color: papayawhip;
 }
@@ -139,7 +139,7 @@ input[type="button"]:hover {
 }
 
 #single-result, #game-result {
-    font-size: clamp(16px, 2vw, 30px);
+    font-size: clamp(1rem, 2vw, 1.875rem);
     font-weight: bold;
 }
 
