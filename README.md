@@ -21,7 +21,7 @@ Mobile
 ![Mobile View](./images/0xkev21.github.io_rock-paper-scissors_(iPhone%2012%20Pro).png)
 
 ## Links
-Live Site Url - [Rock Paper Scissor](https://0xkev21.github.io/rock-paper-scissors/)
+Live Site Url - [Rock Paper Scissors](https://0xkev21.github.io/rock-paper-scissors/)
 
 ## Built with
 - HTML
